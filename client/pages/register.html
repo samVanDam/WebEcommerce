@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pibu care</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="registerStyle.css" />
+  <!-- Latest compiled JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+     .navbar {
+      list-style: none;
+  }
+    .default {
+        border-color: #e7e7e7;
+        color: black;
+      }
+      
+    .default:hover {
+        background: #e7e7e7;
+    }
+  </style>
+</head>
+
+<body>
+
+    <!-- Make both navbars stick to top-->
+<!-- Make both navbars stick to top-->
+<nav class="sticky-top">
+
+  <!-- Top bar - Brand name (link to homepage) + register, login and basket button -->
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="images\Pibu-v1_2.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+  <!-- Dropdown bar - New products, Brands, Product type, Skin type, Discounts -->
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/products.html">Products <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Product Type
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="products.html">Cleanser</a>
+                <a class="dropdown-item" href="products.html">Toner</a>
+                <a class="dropdown-item" href="products.html">Serum</a>
+                <a class="dropdown-item" href="products.html">Mask</a>
+                <a class="dropdown-item" href="products.html">Face Cream</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Skin Type
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="products.html">Dry Skin</a>
+              <a class="dropdown-item" href="products.html">Oily Skin</a>
+              <a class="dropdown-item" href="products.html">Combined Skin</a>
+              <a class="dropdown-item" href="products.html">Sensitive Skin</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Brands
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="products.html">CosRX</a>
+                  <a class="dropdown-item" href="products.html">Dr.Jart+</a>
+                  <a class="dropdown-item" href="products.html">Mizon</a>
+                  <a class="dropdown-item" href="products.html">Nature Republic</a>
+                </div>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto"></ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn default my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div> 
+              <li class="nav-item">
+                <a class="nav-link" href="/basket.html">
+                <img src="images/shopping-basket-2-32.png">
+                </a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="form">
+        <form action="index.html" style="width: 50%">
+            <div class="container" >
+              <h1>Register</h1>
+              <p>Please enter your email and choose a password to register for your Pibu care account
+              </p>
+              <hr>
+
+              <label for="name"><b>Name</b></label>
+              <input type="text" placeholder="Enter Name" name="name" id="name" required>
+          
+              <label for="email"><b>Email</b></label>
+              <input type="email" placeholder="Enter Email" name="email" id="email" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+          
+              <label for="psw-repeat"><b>Repeat Password</b> </label>
+              <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+              <hr>
+              <p id="message"></p>
+              <p>By creating an account you agree to our Terms & Privacy.</p>
+              <button type="submit" class="registerbtn" onclick="storeUser()">Register</button>
+              <button type="cancel" class="cancelbtn" onclick="history.back(-1)">Cancel</button>
+            </div>
+          
+            <div class="container signin">
+              <p>Already have an account? <a href="login.html">Sign in</a>.</p> <!-- Link to login page -->
+            </div>
+          </form>
+    </div>
+
+  <!-- Footer -->
+<footer class="bg-light text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+  
+        <!-- Google -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-google"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+  
+        <!-- Github -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+  
+      <!-- Section: Text -->
+      <section class="descriptionText">
+        <p>
+          Pibu care sells Korean skincare to all men and women, who wants to take extra good care of their skin.
+          The company name stems from the Korean word for skin, Pibu.
+        </p>
+      </section>
+      <!-- Section: Text -->
+  
+     
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white">Pibu Care</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+  <script type="text/javascript">
+    function storeUser(){
+        // Extract information
+        let inputName = document.getElementById("name").value;
+        let inputEmail = document.getElementById("email").value;
+        let inputPassword = document.getElementById("psw").value;
+        let inputPswRepeat = document.getElementById("psw-repeat").value;
+
+        // Check that the password and the repeat password is equal
+        if(inputPassword === inputPswRepeat) {
+            // Save user to the localStorage
+            localStorage.setItem("name", inputName);
+            localStorage.setItem("email", inputEmail);
+            localStorage.setItem("password", inputPassword);
+            document.getElementById("message").innerHTML = '';
+        } else {
+            // Alert the user that the password and repeat password is different
+            document.getElementById("message").innerHTML = 'The two passwords do not match';
+            event.preventDefault();
+        }
+        // To extract search for the email and parse the JSON object
+    } 
+
+  </script>
+</body>
+
+</html>

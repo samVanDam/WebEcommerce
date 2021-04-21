@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pibu care</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--CSS-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="DATA.js"></script>
+
+<style>
+  .navbar {
+      list-style: none;
+  }
+
+  .default {
+      border-color: #e7e7e7;
+      color: black;
+    }
+    
+  .default:hover {
+      background: #e7e7e7;
+  }
+
+  .carousel{
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+  }
+
+  .align-center {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 20px;
+  }
+
+  .img-fluid {
+    max-width: 50%;
+    height: auto;
+  }
+  .descriptionText {
+    color: black;
+
+    text-align: center;
+  }
+
+</style>
+</head>
+
+
+<body> 
+<!-- Home page -->
+
+<!-- Make both navbars stick to top-->
+<!-- Make both navbars stick to top-->
+<nav class="sticky-top">
+
+  <!-- Top bar - Brand name (link to homepage) + register, login and basket button -->
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="images\Pibu-v1_2.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+  <!-- Dropdown bar - New products, Brands, Product type, Skin type, Discounts -->
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/products.html">Products <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Product Type
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="products.html">Cleanser</a>
+                <a class="dropdown-item" href="products.html">Toner</a>
+                <a class="dropdown-item" href="products.html">Serum</a>
+                <a class="dropdown-item" href="products.html">Mask</a>
+                <a class="dropdown-item" href="products.html">Face Cream</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Skin Type
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="products.html">Dry Skin</a>
+              <a class="dropdown-item" href="products.html">Oily Skin</a>
+              <a class="dropdown-item" href="products.html">Combined Skin</a>
+              <a class="dropdown-item" href="products.html">Sensitive Skin</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Brands
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="products.html">CosRX</a>
+                  <a class="dropdown-item" href="products.html">Dr.Jart+</a>
+                  <a class="dropdown-item" href="products.html">Mizon</a>
+                  <a class="dropdown-item" href="products.html">Nature Republic</a>
+                </div>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto"></ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn default my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div> 
+              <li class="nav-item">
+                <a class="nav-link" href="/basket.html">
+                <img src="images/shopping-basket-2-32.png">
+                </a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!--Title/Greeting-->
+<div class="align-center">
+  <h1 id="message">Welcome to Pibu Care!</h1>
+</div>
+
+
+
+<!--New Product Title-->
+<div class="carousel">
+<h2>New Products</h2>
+<!-- <a id="testLink" href="detailedProducts.html">Jump to detailed product page - Remove later</a> -->
+<!-- New product caurosel -->
+<!-- <div class="container" class="d-block w-50" > -->
+    <div class="d-flex justify-content-center w-100 h-100">
+        
+        <div class="w-50">
+          
+        <div id="demo1" class="carousel slide" data-ride="carousel">
+          
+          <!-- Indicators -->
+          <ul class="carousel-indicators">
+            <li data-target="#demo1" data-slide-to="0" class="active"></li>
+            <li data-target="#demo1" data-slide-to="1"></li>
+            <li data-target="#demo1" data-slide-to="2"></li>
+            <li data-target="#demo1" data-slide-to="3"></li>
+          </ul>
+          
+          <!-- The slideshow -->
+          
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              
+              <img class="img-fluid d-block w-100" name="itemNew" src="#">
+            </div>
+            <div class="carousel-item" >
+              
+              <img class="img-fluid d-block w-100" name="itemNew" src="#">
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid d-block w-100" name="itemNew"  src="#">
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid d-block w-100" name="itemNew" src="#">
+            </div>
+          </div>
+          
+          <!-- Left and right controls -->
+          <a class="carousel-control-prev" href="#demo1" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo1" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<!-- Discount product caurosel -->
+<div class="carousel">
+<h3>Products on sale</h3>
+<!-- New product caurosel -->
+<!-- <div class="container" class="d-block w-50" > -->
+    <div class="d-flex justify-content-center w-100 h-100">
+        
+      <div class="w-50">
+          
+        <div id="demo2" class="carousel slide" data-ride="carousel">
+          
+          <!-- Indicators -->
+          <ul class="carousel-indicators">
+            <li data-target="#demo2" data-slide-to="0" class="active"></li>
+            <li data-target="#demo2" data-slide-to="1"></li>
+            <li data-target="#demo2" data-slide-to="2"></li>
+            <li data-target="#demo2" data-slide-to="3"></li>
+          </ul>
+          
+          <!-- The slideshow -->
+          
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              
+              <img class="img-fluid d-block w-100" name="itemSale" src="#">
+            </div>
+            <div class="carousel-item ">
+              
+              <img class="img-fluid_new d-block w-100" name="itemSale" src="#">
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid d-block w-100" name="itemSale" src="#">
+            </div>
+            <div class="carousel-item">
+              <img class="img-fluid d-block w-100" name="itemSale" src="#">
+            </div>
+          </div>
+          
+          <!-- Left and right controls -->
+          <a class="carousel-control-prev" href="#demo2" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo2" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- Footer with contact information -->
+<!-- Footer -->
+<footer class="bg-light text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+  
+        <!-- Google -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-google"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+  
+        <!-- Github -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+  
+      <!-- Section: Text -->
+      <section class="descriptionText">
+        <p>
+            Pibu care sells Korean skincare to all men and women, who wants to take extra good care of their skin. 
+            The company name stems from the Korean word for skin, Pibu.
+        </p>
+      </section>
+      <!-- Section: Text -->
+  
+     
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white">Pibu Care</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+
+<script>
+    function addUserName() {
+      const name = localStorage.name;
+      if (name !== undefined) {
+        document.getElementById("message").innerHTML =
+          "Welcome to Pibu Care, " + name +"!";
+      }
+    }
+
+    function displayNewProducts(array) {
+        var slides = document.getElementsByName('itemNew');
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].src = array[i].img;
+            //slide[i].href = "detailedProducts.html?name="+array[i].img;
+        }
+    }
+
+    function displayDiscountProducts(array) {
+        var slides = document.getElementsByName('itemSale');
+          for (let j = 0; j < array.length; j++) {
+            slides[j].src = array[j].img;
+            //slide[i].href = "detailedProducts.html?name="+array[j].img;
+        }
+    }
+
+    //function to test functionality with replacing img src
+    function test() {
+        var slides = document.getElementsByName('itemNew');
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].src = "images\products\cosrx-combined-cream-cosrx_-_pure_fit_cica_cream.jpg"
+        }
+    }
+
+  
+    $("document").ready(function() {
+      //let name = "images/products/cosrx-combined-cream-cosrx_-_pure_fit_cica_cream.jpg";
+      //document.getElementById("testLink").setAttribute("href", "detailedProducts.html?name="+name)
+      // Get data from json
+      let data = JSON.parse(DATA);
+      console.log("ready!")
+
+      NewProducts = new Array();
+      DiscountProducts = new Array();
+
+      data.products.forEach(product => {
+        if(product.tags.includes("new"))
+          NewProducts.push(product);
+        if(product.tags.includes("discount"))
+          DiscountProducts.push(product);
+      });
+      addUserName();
+      displayNewProducts(NewProducts);
+      displayDiscountProducts(DiscountProducts);
+    });
+
+
+</script>
+
+
+
+</body>
+</html>

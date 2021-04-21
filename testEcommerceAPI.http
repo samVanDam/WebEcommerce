@@ -1,0 +1,56 @@
+
+// get all customers
+//GET http://localhost:3000/customers HTTP/1.1
+
+###
+
+// login user
+POST http://localhost:3000/login HTTP/1.1
+content-type: application/json
+
+{"email":"anne@gmail.com", "password": "annespassword"}
+###
+
+// get products
+GET http://localhost:3000/products HTTP/1.1
+
+###
+
+
+// get product by id
+GET http://localhost:3000/products/new-cosrx-combined-cream-pure-fit-cica HTTP/1.1
+
+###
+
+// get product by category
+GET http://localhost:3000/products/categories/skintype HTTP/1.1
+
+###
+
+// get categories
+GET http://localhost:3000/categories HTTP/1.1
+
+###
+
+
+// get categories by id
+GET http://localhost:3000/categories/skintype HTTP/1.1
+
+###
+
+// get customer by id
+GET http://localhost:3000/users/anne@gmail.com HTTP/1.1
+
+###
+
+// update customer
+# PUT  http://localhost:3000/customers/15 HTTP/1.1
+# content-type: application/json
+
+# {"id":15, "customerName": "John Johnson UPDATED!"}
+###
+
+// delete customer
+//DELETE  http://localhost:3000/customers/15 HTTP/1.1
+
+###

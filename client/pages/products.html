@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<title>Pibu care</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="productsStyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="DATA.js"></script>
+<script src="basket.js"></script>
+<style>
+</style>
+<body> <!-- Product page -->
+
+<!--Reference for back-to-top button-->
+    <a name="top"></a>
+
+<!-- Make both navbars stick to top-->
+<nav class="sticky-top">
+
+  <!-- Top bar - Brand name (link to homepage) + register, login and basket button -->
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="images\Pibu-v1_2.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+  <!-- Dropdown bar - New products, Brands, Product type, Skin type, Discounts -->
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/products.html">Products <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Product Type
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="products.html">Cleanser</a>
+                <a class="dropdown-item" href="products.html">Toner</a>
+                <a class="dropdown-item" href="products.html">Serum</a>
+                <a class="dropdown-item" href="products.html">Mask</a>
+                <a class="dropdown-item" href="products.html">Face Cream</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Skin Type
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="products.html">Dry Skin</a>
+              <a class="dropdown-item" href="products.html">Oily Skin</a>
+              <a class="dropdown-item" href="products.html">Combined Skin</a>
+              <a class="dropdown-item" href="products.html">Sensitive Skin</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Brands
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="products.html">CosRX</a>
+                  <a class="dropdown-item" href="products.html">Dr.Jart+</a>
+                  <a class="dropdown-item" href="products.html">Mizon</a>
+                  <a class="dropdown-item" href="products.html">Nature Republic</a>
+                </div>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto"></ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn default my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div> 
+              <li class="nav-item">
+                <a class="nav-link" href="/basket.html">
+                <img src="images/shopping-basket-2-32.png">
+                </a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+<!--Arrange filter and product list into one row with two columns-->
+<div class="container-fluid mt-100">  
+<!-- Vertical filter (left) : Title + filter dropdowns (Brand, product type, skin type) -->
+            <div class="filter">
+                <article class="filter-group" id="filter-group">
+                    <header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside1" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+                            <h6 class="title">Product Type </h6>
+                        </a> </header>
+                    <div class="filter-content collapse" id="collapse_aside1">
+                        <div class="card-body">
+                          <label class="checkbox-btn"> <input class="productType" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Cleanser </span> </label>
+                          <label class="checkbox-btn"> <input class="productType" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Toner </span> </label>
+                          <label class="checkbox-btn"> <input class="productType" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Serum </span> </label>
+                          <label class="checkbox-btn"> <input class="productType" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Mask </span> </label>
+                          <label class="checkbox-btn"> <input class="productType" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Cream </span> </label>
+                        </div>
+                    </div>
+                </article>
+                <article class="filter-group" id="filter-group">
+                    <header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside2" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+                            <h6 class="title">Skin Type</h6>
+                        </a> </header>
+                    <div class="filter-content collapse" id="collapse_aside2" >
+                        <div class="card-body">
+                          <label class="checkbox-btn"> <input class="skinType" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Dry Skin </span> </label> 
+                          <label class="checkbox-btn"> <input class="skinType" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Oily Skin </span> </label> 
+                          <label class="checkbox-btn"> <input class="skinType" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Sensitive Skin </span> </label> 
+                          <label class="checkbox-btn"> <input class="skinType" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Combined Skin </span> </label> 
+                        </div>
+                    </div>
+                </article>
+                <!-- <article class="filter-group">
+                    <header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside3" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+                            <h6 class="title">Price </h6>
+                        </a> </header>
+                    <div class="filter-content collapse" id="collapse_aside3" >
+                        <div class="card-body"> 
+                          <input type="range" class="custom-range" min="0" max="100" name="">
+                            <div class="form-row">
+                                <div class="form-group col-md-6"> <label>Min</label> <input class="form-control" placeholder="$0" type="number"> </div>
+                                <div class="form-group text-right col-md-6"> <label>Max</label> <input class="form-control" placeholder="$1,0000" type="number"> </div>
+                            </div> <a href="#" class="highlight-button btn btn-medium button xs-margin-bottom-five" data-abc="true">Apply Now</a>
+                        </div>
+                    </div>
+                </article> -->
+                <article class="filter-group" id="filter-group" >
+                    <header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside4" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+                            <h6 class="title">Brands </h6>
+                        </a> </header>
+                    <div class="filter-content collapse" id="collapse_aside4" >
+                        <div class="card-body"> 
+                          <label class="checkbox-btn"> <input class="brand" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Cosrx </span> </label> 
+                          <label class="checkbox-btn"> <input class="brand" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Dr. Jart+ </span> </label> 
+                          <label class="checkbox-btn"> <input class="brand" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Mizon </span> </label> 
+                          <label class="checkbox-btn"> <input class="brand" type="checkbox" onchange="filter_products()"> <span class="btn btn-light"> Nature Republic </span> </label> 
+                        </div>
+                    </div>
+                </article>     
+            </div> 
+
+<!-- Title -->
+    <div class="header">
+        <h1>Products</h1>
+    </div>
+<!-- Title -->
+            
+<!-- List of products - Default all products-->
+    <div id="productList" class="products">
+    <!-- Template for our products -->
+        <template id="productTemplate">
+            <div class="card">
+              <a id="productLink" onclick="navigate_to_details()">
+                  <img id="productImage" src="" alt="Product Image">
+              </a>
+              <div id="info">
+                  <h4 id="productname"></h4>
+                  <p id="productprice"></p>
+              </div>
+              <a id="buyButton" onclick="add_to_cart()" href="basket.html" class="btn btn-outline-primary add">Buy</a>
+              <a id="addButton" onclick="add_to_cart()" class="btn btn-outline-primary add">Add to basket</a>  
+          </div>
+        </template>
+    <!-- Template for our products -->   
+          
+          
+    <!-- Stand-in products -->    
+    <!--
+        <div class="card">
+            <img class="card-img-top" src="/images/products/cosrx-combined-cream-cosrx_-_pure_fit_cica_cream.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Robin</h4>
+              <p class="card-text">The robin has a distinctive and beautiful sounding call.</p>
+              <span>
+                <a href="/_4lose.html" class="btn btn-outline-primary">Buy</a>
+                <a href="#" class="btn btn-outline-primary">Add to basket</a>
+              </span>
+            </div>
+        </div>  
+        <div class="card">
+            <img class="card-img-top" src="/images/products/cosrx-combined-cream-cosrx_-_pure_fit_cica_cream.jpg" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title">Robin</h4>
+            <p class="card-text">The robin has a distinctive and beautiful sounding call.</p>
+            <span>
+            <a href="/_4lose.html" class="btn btn-outline-primary">Buy</a>
+            <a href="#" class="btn btn-outline-primary">Add to basket</a>
+            </span>
+            </div>
+        </div>  
+        <div class="card">
+            <img class="card-img-top" src="/images/products/cosrx-combined-cream-cosrx_-_pure_fit_cica_cream.jpg" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title">Robin</h4>
+            <p class="card-text">The robin has a distinctive and beautiful sounding call.</p>
+            <span>
+            <a href="/_4lose.html" class="btn btn-outline-primary">Buy</a>
+            <a href="#" class="btn btn-outline-primary">Add to basket</a>
+            </span>
+            </div>
+        </div>  
+        <div class="card">
+            <img class="card-img-top" src="/images/products/cosrx-combined-cream-cosrx_-_pure_fit_cica_cream.jpg" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title">Robin</h4>
+            <p class="card-text">The robin has a distinctive and beautiful sounding call.</p>
+            <span>
+            <a href="/_4lose.html" class="btn btn-outline-primary">Buy</a>
+            <a href="#" class="btn btn-outline-primary">Add to basket</a>
+            </span>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/images/products/cosrx-combined-cream-cosrx_-_pure_fit_cica_cream.jpg" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title">Robin</h4>
+            <p class="card-text">The robin has a distinctive and beautiful sounding call.</p>
+            <span>
+            <a href="/_4lose.html" class="btn btn-outline-primary">Buy</a>
+            <a href="#" class="btn btn-outline-primary">Add to basket</a>
+            </span>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/images/products/cosrx-combined-cream-cosrx_-_pure_fit_cica_cream.jpg" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title">Robin</h4>
+            <p class="card-text">The robin has a distinctive and beautiful sounding call.</p>
+            <span>
+            <a href="/_4lose.html" class="btn btn-outline-primary">Buy</a>
+            <a href="#" class="btn btn-outline-primary">Add to basket</a>
+            </span>
+            </div>
+        </div> 
+    -->
+  
+    <!-- Stand-in products -->                                    
+    </div>
+<!-- List of products - Default all products -->
+
+
+
+    
+</div>
+<!-- Footer with contact information -->
+<!-- Footer -->
+<footer class="bg-light text-center text-white">
+    <!-- Grid container -->
+    <div class="footer">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+  
+        <!-- Google -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-google"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+  
+        <!-- Github -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+  
+      <!-- Section: Text -->
+      <section class="descriptionText">
+        <p>
+            Pibu care sells Korean skincare to all men and women, who wants to take extra good care of their skin. 
+            The company name stems from the Korean word for skin, Pibu.
+        </p>
+      </section>
+      <!-- Section: Text -->
+  
+     
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white">Pibu Care</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+<!-- Footer -->
+
+
+<!--Button for going back to top-->
+    <div class="button">
+        <a href="#top" class="btn btn-primary">Back to top</a>
+    </div>
+
+
+
+
+
+
+<script language="javascript">
+
+    function filter_products() {
+      // Get the filters and all data
+      let data = JSON.parse(DATA);
+      //console.log(data)
+      let filters = document.getElementsByClassName("filter-group");
+      let appliedFilters = []
+
+      // Get applied filters
+      let productTypes = filters.item(0).getElementsByClassName("productType")
+      for (i = 0; i < productTypes.length; i++) {
+        if(productTypes.item(i).checked) {
+          appliedFilters.push(filters.item(0).getElementsByClassName("btn btn-light").item(i).textContent.trim().toLowerCase())
+        }
+      }
+
+      let skinTypes = filters.item(1).getElementsByClassName("skinType")
+      for (i = 0; i < skinTypes.length; i++) {
+        if(skinTypes.item(i).checked) {
+          appliedFilters.push(filters.item(1).getElementsByClassName("btn btn-light").item(i).textContent.trim().toLowerCase().split(" ")[0])
+        }
+      }
+
+      let brands = filters.item(2).getElementsByClassName("brand")
+      for (i = 0; i < brands.length; i++) {
+        if(brands.item(i).checked) {
+          appliedFilters.push(filters.item(2).getElementsByClassName("btn btn-light").item(i).textContent.trim().toLowerCase())
+        }
+      }
+
+      //console.log(appliedFilters)
+      // for each filter apply filter on data
+      let filteredProducts = apply_filters(data, appliedFilters);
+
+      //console.log(filteredProducts)
+      // input the filtered data
+      // clear the current products
+      let parent = document.getElementsByClassName("productElement")
+      console.log(parent)
+      while(parent.length > 0)
+      {
+        parent.item(0).parentNode.removeChild(parent.item(0));
+      }
+      //console.log(parent)
+
+      filteredProducts.forEach(product => {
+        insert_product(product);
+      });
+    }
+
+
+    function apply_filters(data, filters) {
+      let filtered = [];
+      data.products.forEach((product) => {
+        let count = 0
+        filters.forEach((filter) => {
+          if(product.tags.search(filter) !== -1)
+          {
+            count++;
+          }
+        })
+        if(count === filters.length){
+          filtered.push(product);
+        }
+      });
+      return filtered;
+    }
+
+    function navigate_to_details(productName) {
+      
+    }
+
+
+    function insert_product(productItem) {
+      //Set Up the template
+      let template = document.getElementById("productTemplate");
+
+      // Get the porduct list div
+      var productList = document.getElementById('productList');
+
+      //Clone Template
+      var container = document.createElement("div");
+      container.setAttribute("class", "productElement")
+      var newItem = template.content.cloneNode(true);
+
+      //Populate it
+      var img = newItem.getElementById("productImage");
+          img.setAttribute("src", productItem.img);
+          img.setAttribute("href", "detailedProducts.html?name="+productItem.img);
+      var productName = newItem.getElementById("productname")
+      productName.innerHTML = productItem.name;
+      var productPrice = newItem.getElementById("productprice")
+      productPrice.innerHTML = productItem.price;
+      newItem.getElementById("productLink").setAttribute("href", "detailedProducts.html?name="+productItem.img)
+      var addButtonId = newItem.getElementById("addButton");
+          addButtonId.setAttribute("data-name", productItem.img);
+      var buyButtonId = newItem.getElementById("buyButton");
+          buyButtonId.setAttribute("data-name", productItem.img);
+      
+      //Append it
+      container.appendChild(newItem);
+      productList.appendChild(container);
+    }
+
+    productList.onclick = function(e) {
+        if (e.target && e.target.classList.contains('add')) {
+           add_to_cart(e.target.dataset.name);
+        }
+    }
+
+
+    $("document").ready(function() {
+      // Get data from json
+      let data = JSON.parse(DATA);
+
+      data.products.forEach(product => {
+        insert_product(product);
+      });
+    });
+
+</script>
+
+</body>
+</html>

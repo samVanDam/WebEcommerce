@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<title>Pibu care</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="DATA.js"></script>
+<script src="basket.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="basket.css">
+<style>
+
+  .navbar {
+    list-style: none;
+  }
+
+</style>
+<body> <!-- Basket page -->
+<!-- Top bar - Brand name (link to homepage) + register, login and basket button -->
+<!-- Make both navbars stick to top-->
+<nav class="sticky-top">
+
+  <!-- Top bar - Brand name (link to homepage) + register, login and basket button -->
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="images\Pibu-v1_2.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+  <!-- Dropdown bar - New products, Brands, Product type, Skin type, Discounts -->
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/products.html">Products <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Product Type
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="products.html">Cleanser</a>
+                <a class="dropdown-item" href="products.html">Toner</a>
+                <a class="dropdown-item" href="products.html">Serum</a>
+                <a class="dropdown-item" href="products.html">Mask</a>
+                <a class="dropdown-item" href="products.html">Face Cream</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Skin Type
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="products.html">Dry Skin</a>
+              <a class="dropdown-item" href="products.html">Oily Skin</a>
+              <a class="dropdown-item" href="products.html">Combined Skin</a>
+              <a class="dropdown-item" href="products.html">Sensitive Skin</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Brands
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="products.html">CosRX</a>
+                  <a class="dropdown-item" href="products.html">Dr.Jart+</a>
+                  <a class="dropdown-item" href="products.html">Mizon</a>
+                  <a class="dropdown-item" href="products.html">Nature Republic</a>
+                </div>
+              </li>
+          </ul>
+          <ul class="navbar-nav ml-auto"></ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn default my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div> 
+              <li class="nav-item">
+                <a class="nav-link" href="/basket.html">
+                <img src="images/shopping-basket-2-32.png">
+                </a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- Title Basket -->
+<!-- List of products in the basket -->
+<!-- Button to complete purchase -->
+<div class="container main-section">
+  <div class="row">
+    <div class="col-lg-12 pb-2">
+      <h4 id="message">Your Shopping Basket</h4>
+    </div>
+    <div class="col-lg-12 pl-3 pt-3">
+      <table class="table table-hover border bg-white">
+          <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+          </thead>
+          <tbody id="productList" class="products">
+              <template id="productTemplate">
+                  <td>
+                      <div class="row">
+                          <div class="col-lg-2 Product-img" >
+                            <img id="productImg" src="" alt="..." class="img-responsive"/>
+                          </div>
+                          <div class="col-lg-10">
+                            <h4 class="nomargin" id="productName"></h4>
+                          </div>
+                    </div>
+                  </td>
+                  <td id="productPrice"> 
+                  </td>
+                  <td class="actions" data-th="" style="width:10%;">
+                      <!--Added href to basket, so basket is updated-->
+                      <a href="basket.html" class="btn btn-danger btn-sm remove" id="deleteButton" data-name=""><i class="fa fa-trash-o"></i></button>						
+                  </td>
+              </template>
+              <!-- <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-lg-2 Product-img">
+                          <img src="http://nicesnippets.com/demo/sc-images.jpg" alt="..." class="img-responsive"/>
+                        </div>
+                        <div class="col-lg-10">
+                          <h4 class="nomargin">Lenovo K6 Power</h4>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                  </div>
+                </td>
+                <td> 12,000 </td>
+                <td class="actions" data-th="" style="width:10%;">
+                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+                </td>
+              </tr> -->
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Total</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td><a href="products.html" class="btn btn-warning text-white"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+            <td class="hidden-xs text-center" style="width:10%;"><strong id="totalPrice"></strong></td>
+            <td><a onclick="checkout()" href="basket.html" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer with contact information -->
+<!-- Footer -->
+<footer class="bg-light text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Text -->
+    <section class="descriptionText">
+      <p>
+          Pibu care sells Korean skincare to all men and women, who wants to take extra good care of their skin. 
+          The company name stems from the Korean word for skin, Pibu.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+   
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white">Pibu Care</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<script>
+    function addUserName() {
+      const name = localStorage.name;
+      if (name !== undefined) {
+        document.getElementById("message").innerHTML =
+          name +"'s Shopping Basket";
+      }
+    }
+
+    
+
+    //---------------------------------------------
+    // Insert items in template
+    function insertProduct(productItem) {
+      let template = document.getElementById("productTemplate");
+
+      //var basketList = document.getElementById("basketList");
+
+      var container = document.createElement("tr");
+      container.setAttribute("class", "productElement")
+      container.setAttribute("id", productItem.name)
+      var newItem = template.content.cloneNode(true);
+
+      var img = newItem.getElementById("productImg");
+          img.setAttribute("src", productItem.img);
+      var productName = newItem.getElementById("productName");
+      productName.innerHTML = productItem.name;
+      var productPrice = newItem.getElementById("productPrice");
+      productPrice.innerHTML = productItem.price;
+      var deleteButtonId = newItem.getElementById("deleteButton");
+          deleteButtonId.setAttribute("data-name", productItem.img);
+
+      container.appendChild(newItem);
+      productList.appendChild(container);
+    }
+
+    const productList = document.getElementById('productList')
+
+    productList.onclick = function(e) {
+        if (e.target && e.target.classList.contains('remove')) {
+           remove_from_local(e.target.dataset.name);
+           var x = e.target.parentNode.parentNode.parentNode;
+           var y = e.target.parentNode.parentNode;
+           x.removeChild(y)
+        }
+    }
+
+    function addItem(productItem) {
+      cart.push(productItem)
+    }
+
+
+    $("document").ready(function() {
+      let data = JSON.parse(DATA);
+      var testBasket = new Array();
+      //get itemCart value from localStorage
+      var itemCart = localStorage.itemCart;
+      //parse into js array object
+      var itemCart = itemCart ? itemCart.split(',') : [];
+
+
+      //add each product from itemCart to cart array.
+      itemCart.forEach(itemUrl => {
+          data.products.forEach(p => {
+            if (p.img === itemUrl) {
+              testBasket.push(p);
+            }
+          });
+      });
+
+      testBasket.forEach(product => {
+          insertProduct(product)
+      });
+
+      //insertTotal(getTotal());
+
+      addUserName();
+
+    });
+
+
+</script>
+
+</body>
+</html>
