@@ -32,7 +32,8 @@ content-type: application/json
 POST http://localhost:3000/users/anne@gmail.com/basket HTTP/1.1
 content-type: application/json
 
-{"email":"anne@gmail.com", }
+//{"tags":"new-cosrx-combined-cream-pure-fit-cica"}
+//{"email":"anne@gmail.com"}
 
 
 ###

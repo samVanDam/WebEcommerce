@@ -118,12 +118,12 @@ export async function addUser(newUser) {
 }
 
 // update existing item
-export async function updateBasketOfUser(itemId, item) {
+export async function updateBasketOfUser(customerId, item) {
   let itemArray = await getAll();
   let users = itemArray.users;
-  let index = findUser(users, itemId); // findIndex
+  let index = findUser(users, customerId); // findIndex
   if (index === -1)
-    throw new Error(`Item with ID:${itemId} doesn't exist`);
+    throw new Error(`Customer with ID:${customerId} doesn't exist`);
   else {
     users[index].basket = item;
     await save(itemArray);
