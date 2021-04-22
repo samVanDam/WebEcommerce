@@ -4,11 +4,44 @@
 
 ###
 
+//create user
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{"customerName":"Anne Jensen", "email":"anne@gmail.com", "password":"annespassword"}
+
+
+###
+
+###
+
+// get customer by id
+GET http://localhost:3000/users/anne@gmail.com HTTP/1.1
+
+
 // login user
 POST http://localhost:3000/login HTTP/1.1
 content-type: application/json
 
 {"email":"anne@gmail.com", "password": "annespassword"}
+
+
+###
+
+//create basket for specific user
+POST http://localhost:3000/users/anne@gmail.com/basket HTTP/1.1
+content-type: application/json
+
+{"email":"anne@gmail.com", }
+
+
+###
+
+//get basket of specific user
+GET http://localhost:3000/users/anne@gmail.com/basket HTTP/1.1
+
+
+
 ###
 
 // get products
@@ -36,10 +69,6 @@ GET http://localhost:3000/categories HTTP/1.1
 // get categories by id
 GET http://localhost:3000/categories/skintype HTTP/1.1
 
-###
-
-// get customer by id
-GET http://localhost:3000/users/anne@gmail.com HTTP/1.1
 
 ###
 
