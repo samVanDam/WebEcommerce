@@ -49,9 +49,10 @@ export async function getUser(req, res) {
 export async function postBasket(req, res) { // should be post
   try {
     let newBasket = req.body;
-    await model.updateBasket(newBasket);
-    res.status().json({
-      status: "UPDATED"
+    let email = req.params.email;
+    await model.updateBasketOfUser(email,newBasket);
+    res.status(200).json({
+      status: "OK",
     });
   } catch (error) {
     res.status(400).json({
@@ -88,7 +89,7 @@ export async function getProducts(req, res) {
 
 export async function getProductById(req, res) {
   try {
-    let id = req.params.img;
+    let id = req.params.tags;
     let product = await model.getProductByID(id);
     res.json(product);
   } catch (error) {

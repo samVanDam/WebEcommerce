@@ -24,7 +24,7 @@ ecommerceRouter.post("/login/", postLoginUser);
 
 ecommerceRouter.get("/products/", getProducts);
 
-ecommerceRouter.get("/products/:img", getProductById);
+ecommerceRouter.get("/products/:tags", getProductById);
 
 ecommerceRouter.get("/products/categories/:Id", getProductByCategory);
 

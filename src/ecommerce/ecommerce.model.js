@@ -54,14 +54,14 @@ function findCategory(categoryArray, Id) {
   );
 }
 
-function findProductsInCategory(products, subCategories) {
+function findProductsInCategory(products, category) {
   let filteredProducts = [];
   products.forEach(product => {
-    subCategories.forEach(category => {
-      if(product.tags.includes(category))
-        filteredProducts.push(product)
-  });
+      if(product.tags.includes(category)) {
+        filteredProducts.push(product);
+      }
     });
+    return filteredProducts;
 }
 
 // get user by ID
@@ -88,9 +88,10 @@ export async function getProductByID(itemId) {
 export async function getProductByCategory(category) {
   let itemArray = await getAll();
   let products = itemArray.products;
-  let subCategories = itemArray.categories[findCategory(itemArray.categories, category)].types;
-  let filteredProducts = findProductsInCategory(products, subCategories);
-  if (index === -1)
+  //let index = findCategory(itemArray.categories, category);
+  //let subCategories = itemArray.categories[index].types;
+  let filteredProducts = findProductsInCategory(products, category);
+  if (filteredProducts.length === 0)
     throw new Error(`There is no products in category:${category}`);
   else return filteredProducts;
 }
@@ -118,14 +119,14 @@ export async function addUser(newUser) {
 }
 
 // update existing item
-export async function updateBasketOfUser(customerId, item) {
+export async function updateBasketOfUser(email, newBasket) {
   let itemArray = await getAll();
   let users = itemArray.users;
-  let index = findUser(users, customerId); // findIndex
+  let index = findUser(users, email); // findIndex
   if (index === -1)
-    throw new Error(`Customer with ID:${customerId} doesn't exist`);
+    throw new Error(`Customer with ID:${email} doesn't exist`);
   else {
-    users[index].basket = item;
+    users[index].basket = newBasket.basket;
     await save(itemArray);
   }
 }
