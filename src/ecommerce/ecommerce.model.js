@@ -89,7 +89,7 @@ export async function getProductByCategory(category) {
   let itemArray = await getAll();
   let products = itemArray.products;
   let subCategories = itemArray.categories[findCategory(itemArray.categories, category)].types;
-  let filteredProducts = findProductsInCategory(products, category);
+  let filteredProducts = findProductsInCategory(products, subCategories);
   if (index === -1)
     throw new Error(`There is no products in category:${category}`);
   else return filteredProducts;
