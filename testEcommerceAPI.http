@@ -27,17 +27,21 @@ content-type: application/json
 
 ###
 
-//create basket for specific user
-POST http://localhost:3000/users/anne@gmail.com/basket HTTP/1.1
+// put item in basket for specific user
+PUT http://localhost:3000/users/anne@gmail.com/basket HTTP/1.1
 content-type: application/json
 
 { 
- "basket":[ 
-     "new-cosrx-combined-cream-pure-fit-cica", 
-     "cosrx-combined-dry-mask-balancium-comfort-ceramide-soft"
-    ]
+ "item":"new-cosrx-combined-cream-pure-fit-cica"
 }
 
+// delete item in basket for specific user
+DELETE http://localhost:3000/users/anne@gmail.com/basket HTTP/1.1
+content-type: application/json
+
+{ 
+ "item":"new-cosrx-combined-cream-pure-fit-cica"
+}
 
 ###
 

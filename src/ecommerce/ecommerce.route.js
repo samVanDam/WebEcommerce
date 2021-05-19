@@ -1,5 +1,5 @@
 import express from 'express'
-import {getBasket, getCategories, getCategoryById, getProductById, getProductByCategory, getProducts, getUser, postCreateUser, postLoginUser, postBasket } from './ecommerce.controller.js'
+import {getBasket, getCategories, getCategoryById, getProductById, getProductByCategory, getProducts, getUser, postCreateUser, postLoginUser, putItemInBasket, deleteItemFromBasket} from './ecommerce.controller.js'
 //var {getBasket, getCategories, getCategoryById, getProductById, getProducts, getUser, postCreateUser, postLoginUser, updateBasket }  = require('./ecommerce.controller');
 import cors from "cors"
 
@@ -16,7 +16,11 @@ ecommerceRouter.post("/users", postCreateUser);
 
 ecommerceRouter.get("/users/:email", getUser);
 
-ecommerceRouter.post("/users/:email/basket", postBasket);
+//ecommerceRouter.post("/users/:email/basket", postBasket);
+
+ecommerceRouter.put("/users/:email/basket", putItemInBasket);
+
+ecommerceRouter.delete("/users/:email/basket", deleteItemFromBasket);
 
 ecommerceRouter.get("/users/:email/basket", getBasket);
 
@@ -26,10 +30,10 @@ ecommerceRouter.get("/products/", getProducts);
 
 ecommerceRouter.get("/products/:tags", getProductById);
 
-ecommerceRouter.get("/products/categories/:Id", getProductByCategory);
+ecommerceRouter.get("/categories/:categoryId/products", getProductByCategory);
 
 ecommerceRouter.get("/categories/", getCategories);
 
-ecommerceRouter.get("/categories/:id", getCategoryById);
+ecommerceRouter.get("/categories/:categoryId/subcategories", getCategoryById);
 
 

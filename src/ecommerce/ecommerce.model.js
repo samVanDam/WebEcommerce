@@ -118,18 +118,51 @@ export async function addUser(newUser) {
   await save(users);
 }
 
+// // update existing item
+// export async function updateBasketOfUser(email, newBasket) {
+//   let itemArray = await getAll();
+//   let users = itemArray.users;
+//   let index = findUser(users, email); // findIndex
+//   if (index === -1)
+//     throw new Error(`Customer with ID:${email} doesn't exist`);
+//   else {
+//     users[index].basket = newBasket.basket;
+//     await save(itemArray);
+//   }
+// }
+
+
 // update existing item
-export async function updateBasketOfUser(email, newBasket) {
+export async function putItemInBasket(email, item) {
   let itemArray = await getAll();
   let users = itemArray.users;
   let index = findUser(users, email); // findIndex
   if (index === -1)
     throw new Error(`Customer with ID:${email} doesn't exist`);
   else {
-    users[index].basket = newBasket.basket;
+    users[index].basket.push(item);
     await save(itemArray);
   }
 }
+
+// update existing item
+export async function deleteItemFromBasket(email, item) {
+  let itemArray = await getAll();
+  let users = itemArray.users;
+  let index = findUser(users, email); // findIndex
+  if (index === -1)
+    throw new Error(`Customer with ID:${email} doesn't exist`);
+  else {
+    let basket = users[index].basket;
+    let i = basket.indexOf(item);
+    if(i === -1){
+      throw new Error(`Deleting item: ${item}, which isn't in the user's basket (${email})`)
+    } 
+    basket.splice(i, 1);
+    await save(itemArray);
+  }
+}
+
 
 // get category by ID
 export async function getCategoryByID(itemId) {
